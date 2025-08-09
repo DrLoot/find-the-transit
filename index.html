@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,7 +16,11 @@
       --good: #78e08f;
       --bad: #ff7675;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -25,51 +30,178 @@
       display: grid;
       grid-template-rows: auto 1fr auto;
     }
-    header, footer { padding: 16px 20px; }
-    header h1 { margin: 0 0 4px 0; font-size: 1.3rem; letter-spacing: 0.5px; }
-    header p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-    .wrap { display: grid; grid-template-columns: 340px 1fr; gap: 16px; padding: 16px; }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+    header,
+    footer {
+      padding: 16px 20px;
     }
-    .panel { padding: 14px; }
-    .panel h2 { margin: 2px 0 10px 0; font-size: 1.1rem; color: var(--accent); }
-    .controls label { display: block; margin: 10px 0 4px 0; color: var(--muted); font-size: 0.9rem; }
-    .controls input[type="range"] { width: 100%; }
-    .controls input[type="checkbox"] { transform: translateY(1px); }
-    .controls .row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
+
+    header h1 {
+      margin: 0 0 4px 0;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .wrap {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .panel {
+      padding: 14px;
+    }
+
+    .panel h2 {
+      margin: 2px 0 10px 0;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .controls label {
+      display: block;
+      margin: 10px 0 4px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .controls input[type="range"] {
+      width: 100%;
+    }
+
+    .controls input[type="checkbox"] {
+      transform: translateY(1px);
+    }
+
+    .controls .row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+
     .btn {
-      appearance: none; border: none; cursor: pointer;
-      padding: 10px 12px; border-radius: 10px;
-      font-weight: 600; color: #0b1020; background: var(--accent);
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: #0b1020;
+      background: var(--accent);
       transition: transform 0.05s ease-in-out, box-shadow 0.2s;
-      box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
       margin-right: 8px;
     }
-    .btn:active { transform: translateY(1px); box-shadow: 0 3px 0 rgba(0,0,0,0.2); }
-    .btn.secondary { background: var(--accent2); }
-    .btn.ghost { background: transparent; color: var(--ink); border: 1px dashed rgba(255,255,255,0.3); }
-    .kpi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
-    .kpi .tile { background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px; }
-    .tile .label { color: var(--muted); font-size: 0.8rem; }
-    .tile .value { font-weight: 700; font-size: 1.05rem; }
-    canvas { width: 100%; height: 520px; display: block; }
-    .legend { display: flex; gap: 12px; align-items: center; font-size: 0.9rem; color: var(--muted); padding: 6px 12px 12px 12px; }
-    .legend .swatch { width: 12px; height: 12px; border-radius: 2px; display: inline-block; margin-right: 6px; }
-    .swatch.data { background: #9fb6ff; }
-    .swatch.true { background: #78e08f; }
-    .swatch.sel  { background: #ffc77b; }
-    footer { color: var(--muted); font-size: 0.9rem; text-align: center; }
-    @media (max-width: 900px) { .wrap { grid-template-columns: 1fr; } }
+
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .btn.secondary {
+      background: var(--accent2);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px dashed rgba(255, 255, 255, 0.3);
+    }
+
+    .kpi {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .kpi .tile {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .tile .label {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .tile .value {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    canvas {
+      width: 100%;
+      height: 520px;
+      display: block;
+    }
+
+    .legend {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 6px 12px 12px 12px;
+    }
+
+    .legend .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .swatch.data {
+      background: #9fb6ff;
+    }
+
+    .swatch.true {
+      background: #78e08f;
+    }
+
+    .swatch.sel {
+      background: #ffc77b;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .wrap {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>DrLoot's Find the Transit Mini-game!</h1>
-    <p>Spot the dip in a noisy light curve. Click &amp; drag to mark where you think the transit occurs. Then press <b>Score Guess</b>.</p>
+    <h1>Find the Transit!</h1>
+    <p>Spot the dip in a noisy light curve. Click &amp; drag to mark where you think the transit occurs. Then press
+      <b>Score Guess</b>.
+    </p>
   </header>
 
   <div class="wrap">
@@ -81,7 +213,7 @@
           <span id="difficultyVal">Medium</span>
         </div>
         <input id="difficulty" type="range" min="0" max="2" value="1" step="1" />
-        
+
         <div class="row">
           <label for="depth">Transit depth (ppt)</label>
           <span id="depthVal">10</span>
@@ -135,317 +267,320 @@
   </div>
 
   <footer>
-    Built for fun + learning. Hosted by DrLoot (@Doug James - Slack) on https://drloot.github.io/find-the-transit/.
-  </footer>
+    <footer>
+      Built for fun + learning. Created by DrLoot (Slack: @Doug James) and hosted on
+      <a href="https://drloot.github.io/find-the-transit/">drloot.github.io/find-the-transit</a>.
+    </footer>
 
-  <script>
-    // ----- Utility randoms -----
-    function randn() {
-      // Box-Muller
-      let u = 0, v = 0;
-      while (u === 0) u = Math.random();
-      while (v === 0) v = Math.random();
-      return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-    }
-    const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+    <script>
+      // ----- Utility randoms -----
+      function randn() {
+        // Box-Muller
+        let u = 0, v = 0;
+        while (u === 0) u = Math.random();
+        while (v === 0) v = Math.random();
+        return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+      }
+      const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 
-    // ----- Simulation model -----
-    const state = {
-      minutes: [], flux: [],
-      params: { depth: 0.01, durationMin: 20, midMin: 90 },
-      noiseSigma: 0.003,
-      includeDrift: true,
-      includeOutliers: true,
-      selection: null, // { startMin, endMin }
-      revealed: false
-    };
+      // ----- Simulation model -----
+      const state = {
+        minutes: [], flux: [],
+        params: { depth: 0.01, durationMin: 20, midMin: 90 },
+        noiseSigma: 0.003,
+        includeDrift: true,
+        includeOutliers: true,
+        selection: null, // { startMin, endMin }
+        revealed: false
+      };
 
-    function generateCurve() {
-      const diff = +document.getElementById('difficulty').value; // 0 easy, 1 med, 2 hard
-      const depthPpt = +document.getElementById('depth').value; // in parts per thousand
-      const durationMin = +document.getElementById('duration').value;
-      const includeDrift = document.getElementById('drift').checked;
-      const includeOutliers = document.getElementById('outliers').checked;
+      function generateCurve() {
+        const diff = +document.getElementById('difficulty').value; // 0 easy, 1 med, 2 hard
+        const depthPpt = +document.getElementById('depth').value; // in parts per thousand
+        const durationMin = +document.getElementById('duration').value;
+        const includeDrift = document.getElementById('drift').checked;
+        const includeOutliers = document.getElementById('outliers').checked;
 
-      // Map difficulty to noise (RMS) in relative flux
-      const noiseMap = [0.0015, 0.003, 0.006];
-      const noiseSigma = noiseMap[diff];
+        // Map difficulty to noise (RMS) in relative flux
+        const noiseMap = [0.0015, 0.003, 0.006];
+        const noiseSigma = noiseMap[diff];
 
-      // Observation window: 0..180 minutes at 1-min cadence
-      const N = 180;
-      const minutes = Array.from({length: N}, (_, i) => i);
-      
-      // Random mid-transit anywhere between 40 and 140 min (avoid edges)
-      const midMin = 40 + Math.random() * 100;
-      const depth = depthPpt / 1000; // convert ppt -> relative
-      const dur = durationMin; // minutes
-      const half = dur / 2;
+        // Observation window: 0..180 minutes at 1-min cadence
+        const N = 180;
+        const minutes = Array.from({ length: N }, (_, i) => i);
 
-      // Base flux = 1.0, transit as simple trapezoid (box with soft edges)
-      const ingressEgress = Math.max(2, Math.min(8, dur * 0.15)); // minutes
-      const flux = minutes.map(t => {
-        const dt = Math.abs(t - midMin);
-        let dip = 0;
-        if (dt <= half - ingressEgress) {
-          dip = depth;
-        } else if (dt <= half) {
-          // linear ramp
-          dip = depth * (1 - (dt - (half - ingressEgress)) / ingressEgress);
-        } else {
-          dip = 0;
+        // Random mid-transit anywhere between 40 and 140 min (avoid edges)
+        const midMin = 40 + Math.random() * 100;
+        const depth = depthPpt / 1000; // convert ppt -> relative
+        const dur = durationMin; // minutes
+        const half = dur / 2;
+
+        // Base flux = 1.0, transit as simple trapezoid (box with soft edges)
+        const ingressEgress = Math.max(2, Math.min(8, dur * 0.15)); // minutes
+        const flux = minutes.map(t => {
+          const dt = Math.abs(t - midMin);
+          let dip = 0;
+          if (dt <= half - ingressEgress) {
+            dip = depth;
+          } else if (dt <= half) {
+            // linear ramp
+            dip = depth * (1 - (dt - (half - ingressEgress)) / ingressEgress);
+          } else {
+            dip = 0;
+          }
+          return 1.0 - dip;
+        });
+
+        // Add slow drift (e.g., airmass) as a gentle sine or linear trend
+        if (includeDrift) {
+          const driftType = Math.random() < 0.5 ? 'sine' : 'linear';
+          const N = minutes.length;
+
+          if (driftType === 'sine') {
+            const amp = 0.003;                 // ±0.3%
+            const phase = Math.random() * 2 * Math.PI;
+            const period = N * (0.8 + Math.random() * 0.4);  // 0.8–1.2 of window
+            for (let i = 0; i < N; i++) {
+              flux[i] += amp * Math.sin((2 * Math.PI * i) / period + phase);
+            }
+          } else {
+            const total = (Math.random() * 0.01) - 0.005;    // total change −0.5%..+0.5%
+            const slope = total / Math.max(1, N - 1);
+            for (let i = 0; i < N; i++) {
+              flux[i] += slope * i;
+            }
+          }
         }
-        return 1.0 - dip;
+
+        // Add Gaussian noise
+        for (let i = 0; i < N; i++) flux[i] += noiseSigma * randn();
+
+        // Add occasional outliers
+        if (includeOutliers) {
+          const k = 3 + Math.floor(Math.random() * 5);
+          for (let j = 0; j < k; j++) {
+            const idx = Math.floor(Math.random() * N);
+            flux[idx] += (Math.random() < 0.5 ? -1 : 1) * (noiseSigma * (5 + Math.random() * 10));
+          }
+        }
+
+        // Update state
+        state.minutes = minutes;
+        state.flux = flux;
+        state.params = { depth, durationMin: dur, midMin };
+        state.noiseSigma = noiseSigma;
+        state.includeDrift = includeDrift;
+        state.includeOutliers = includeOutliers;
+        state.selection = null;
+        state.revealed = false;
+
+        // Update UI labels
+        document.getElementById('difficultyVal').textContent = ['Easy', 'Medium', 'Hard'][diff];
+        document.getElementById('depthVal').textContent = depthPpt.toString();
+        document.getElementById('durationVal').textContent = durationMin.toString();
+        document.getElementById('trueMid').textContent = midMin.toFixed(1);
+        const snr = depth / (state.noiseSigma || 1e-6);
+        document.getElementById('snrVal').textContent = snr.toFixed(1);
+        document.getElementById('selWindow').textContent = '—';
+        document.getElementById('scoreVal').textContent = '—';
+
+        draw();
+      }
+
+      // ----- Plotting -----
+      const canvas = document.getElementById('plot');
+      const ctx = canvas.getContext('2d');
+      let dragging = false;
+      let dragStart = null;
+      let dragEnd = null;
+
+      function xScale(min) {
+        // Map minutes (0..180) to canvas width
+        return 60 + (min / 180) * (canvas.width - 90);
+      }
+      function invXScale(x) {
+        return clamp(((x - 60) / (canvas.width - 90)) * 180, 0, 180);
+      }
+      function yScale(flux) {
+        const yMin = 0.96;
+        const yMax = 1.04;
+        return 30 + (1 - (flux - yMin) / (yMax - yMin)) * (canvas.height - 60);
+      }
+
+
+      function clearPlot() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function drawAxes() {
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+        ctx.lineWidth = 1;
+        // Frame
+        ctx.strokeRect(50, 20, canvas.width - 80, canvas.height - 60);
+        // X ticks every 30 min
+        ctx.fillStyle = 'rgba(255,255,255,0.6)';
+        ctx.font = '12px system-ui, sans-serif';
+        for (let t = 0; t <= 180; t += 30) {
+          const x = xScale(t);
+          ctx.beginPath(); ctx.moveTo(x, canvas.height - 40); ctx.lineTo(x, canvas.height - 44); ctx.stroke();
+          ctx.fillText(t.toString(), x - 8, canvas.height - 22);
+        }
+        // Y ticks
+        for (let f = 0.96; f <= 1.04; f += 0.02) {
+          const y = yScale(f);
+          ctx.beginPath(); ctx.moveTo(50, y); ctx.lineTo(54, y); ctx.stroke();
+          ctx.fillText(f.toFixed(2), 14, y + 4);
+        }
+        ctx.fillText('Minutes', canvas.width - 120, canvas.height - 12);
+        ctx.fillText('Relative Flux', 14, 18);
+        ctx.restore();
+      }
+
+      function drawPoints() {
+        ctx.save();
+        ctx.fillStyle = '#9fb6ff';
+        for (let i = 0; i < state.minutes.length; i++) {
+          const x = xScale(state.minutes[i]);
+          const y = yScale(state.flux[i]);
+          ctx.fillRect(x - 1.5, y - 1.5, 3, 3);
+        }
+        ctx.restore();
+      }
+
+      function drawTrueWindow() {
+        if (!state.revealed) return;
+        const start = state.params.midMin - state.params.durationMin / 2;
+        const end = state.params.midMin + state.params.durationMin / 2;
+        const x1 = xScale(start);
+        const x2 = xScale(end);
+        ctx.save();
+        ctx.fillStyle = 'rgba(120,224,143,0.25)';
+        ctx.strokeStyle = 'rgba(120,224,143,0.9)';
+        ctx.lineWidth = 2;
+        ctx.fillRect(x1, 20, x2 - x1, canvas.height - 60);
+        ctx.strokeRect(x1, 20, x2 - x1, canvas.height - 60);
+        ctx.restore();
+      }
+
+      function drawSelection() {
+        const sel = state.selection;
+        if (!sel && !(dragStart && dragEnd)) return;
+        const start = sel ? sel.startMin : Math.min(dragStart, dragEnd);
+        const end = sel ? sel.endMin : Math.max(dragStart, dragEnd);
+        const x1 = xScale(start);
+        const x2 = xScale(end);
+        ctx.save();
+        ctx.fillStyle = 'rgba(255,199,123,0.25)';
+        ctx.strokeStyle = 'rgba(255,199,123,0.9)';
+        ctx.lineWidth = 2;
+        ctx.fillRect(x1, 20, x2 - x1, canvas.height - 60);
+        ctx.strokeRect(x1, 20, x2 - x1, canvas.height - 60);
+        ctx.restore();
+      }
+
+      function draw() {
+        clearPlot();
+        drawAxes();
+        drawPoints();
+        drawTrueWindow();
+        drawSelection();
+      }
+
+      // ----- Interaction -----
+      function updateSelLabel() {
+        if (!state.selection) { document.getElementById('selWindow').textContent = '—'; return; }
+        const w = (state.selection.endMin - state.selection.startMin).toFixed(1);
+        document.getElementById('selWindow').textContent = `${state.selection.startMin.toFixed(1)}–${state.selection.endMin.toFixed(1)} min (w=${w})`;
+      }
+
+      function getCanvasX(clientX) {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width; // account for CSS scaling / DPR
+        return (clientX - rect.left) * scaleX;
+      }
+      function onDown(clientX, clientY) {
+        const x = getCanvasX(clientX);
+        dragging = true;
+        dragStart = invXScale(x);
+        dragEnd = dragStart;
+        draw();
+      }
+      function onMove(clientX, clientY) {
+        if (!dragging) return;
+        const x = getCanvasX(clientX);
+        dragEnd = invXScale(x);
+        draw();
+      }
+      function onUp() {
+        if (!dragging) return;
+        dragging = false;
+        const a = Math.min(dragStart, dragEnd);
+        const b = Math.max(dragStart, dragEnd);
+        if (Math.abs(b - a) < 1) { // too tiny, ignore
+          state.selection = null;
+        } else {
+          state.selection = { startMin: a, endMin: b };
+        }
+        dragStart = dragEnd = null;
+        updateSelLabel();
+        draw();
+      }
+
+      // Mouse
+      canvas.addEventListener('mousedown', (e) => onDown(e.clientX, e.clientY));
+      window.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
+      window.addEventListener('mouseup', onUp);
+      // Touch
+      canvas.addEventListener('touchstart', (e) => { if (e.touches[0]) onDown(e.touches[0].clientX, e.touches[0].clientY); });
+      window.addEventListener('touchmove', (e) => { if (e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY); });
+      window.addEventListener('touchend', onUp);
+
+      // ----- Scoring -----
+      function scoreSelection() {
+        if (!state.selection) return { score: 0, msg: 'No selection' };
+        const selMid = 0.5 * (state.selection.startMin + state.selection.endMin);
+        const selW = (state.selection.endMin - state.selection.startMin);
+        const trueMid = state.params.midMin;
+        const trueW = state.params.durationMin;
+
+        const centerErr = Math.abs(selMid - trueMid);
+        const widthErr = Math.abs(selW - trueW);
+
+        // Convert errors to penalties (soft)
+        const centerPenalty = Math.min(1, centerErr / (trueW));      // 0 at perfect center, 1 at one duration off
+        const widthPenalty = Math.min(1, widthErr / (trueW));       // 0 at perfect width, 1 if width is off by a duration
+
+        let score = 100 * (1 - 0.75 * centerPenalty - 0.25 * widthPenalty);
+        score = clamp(Math.round(score), 0, 100);
+
+        let msg = 'Nice!';
+        if (score >= 90) msg = 'Spot on! 🌟';
+        else if (score >= 75) msg = 'Great eye! ✅';
+        else if (score >= 50) msg = 'Close — try tweaking width/center.';
+        else msg = 'Tough one! Look for the broadest consistent dip.';
+
+        return { score, msg };
+      }
+
+      // ----- Buttons -----
+      document.getElementById('new').addEventListener('click', generateCurve);
+      document.getElementById('reveal').addEventListener('click', () => { state.revealed = true; draw(); });
+      document.getElementById('score').addEventListener('click', () => {
+        const { score, msg } = scoreSelection();
+        document.getElementById('scoreVal').textContent = state.selection ? `${score} — ${msg}` : '—';
       });
 
-      // Add slow drift (e.g., airmass) as a gentle sine or linear trend
-      if (includeDrift) {
-  const driftType = Math.random() < 0.5 ? 'sine' : 'linear';
-  const N = minutes.length;
+      // Regenerate when sliders change
+      document.getElementById('difficulty').addEventListener('input', generateCurve);
+      document.getElementById('depth').addEventListener('input', generateCurve);
+      document.getElementById('duration').addEventListener('input', generateCurve);
+      document.getElementById('drift').addEventListener('change', generateCurve);
+      document.getElementById('outliers').addEventListener('change', generateCurve);
 
-  if (driftType === 'sine') {
-    const amp = 0.003;                 // ±0.3%
-    const phase = Math.random() * 2 * Math.PI;
-    const period = N * (0.8 + Math.random() * 0.4);  // 0.8–1.2 of window
-    for (let i = 0; i < N; i++) {
-      flux[i] += amp * Math.sin((2 * Math.PI * i) / period + phase);
-    }
-  } else {
-    const total = (Math.random() * 0.01) - 0.005;    // total change −0.5%..+0.5%
-    const slope = total / Math.max(1, N - 1);
-    for (let i = 0; i < N; i++) {
-      flux[i] += slope * i;
-    }
-  }
-}
-
-      // Add Gaussian noise
-      for (let i = 0; i < N; i++) flux[i] += noiseSigma * randn();
-
-      // Add occasional outliers
-      if (includeOutliers) {
-        const k = 3 + Math.floor(Math.random() * 5);
-        for (let j = 0; j < k; j++) {
-          const idx = Math.floor(Math.random() * N);
-          flux[idx] += (Math.random() < 0.5 ? -1 : 1) * (noiseSigma * (5 + Math.random() * 10));
-        }
-      }
-
-      // Update state
-      state.minutes = minutes;
-      state.flux = flux;
-      state.params = { depth, durationMin: dur, midMin };
-      state.noiseSigma = noiseSigma;
-      state.includeDrift = includeDrift;
-      state.includeOutliers = includeOutliers;
-      state.selection = null;
-      state.revealed = false;
-
-      // Update UI labels
-      document.getElementById('difficultyVal').textContent = ['Easy','Medium','Hard'][diff];
-      document.getElementById('depthVal').textContent = depthPpt.toString();
-      document.getElementById('durationVal').textContent = durationMin.toString();
-      document.getElementById('trueMid').textContent = midMin.toFixed(1);
-      const snr = depth / (state.noiseSigma || 1e-6);
-      document.getElementById('snrVal').textContent = snr.toFixed(1);
-      document.getElementById('selWindow').textContent = '—';
-      document.getElementById('scoreVal').textContent = '—';
-
-      draw();
-    }
-
-    // ----- Plotting -----
-    const canvas = document.getElementById('plot');
-    const ctx = canvas.getContext('2d');
-    let dragging = false;
-    let dragStart = null;
-    let dragEnd = null;
-
-    function xScale(min) {
-      // Map minutes (0..180) to canvas width
-      return 60 + (min / 180) * (canvas.width - 90);
-    }
-    function invXScale(x) {
-      return clamp(((x - 60) / (canvas.width - 90)) * 180, 0, 180);
-    }
-    function yScale(flux) {
-  const yMin = 0.96;
-  const yMax = 1.04;
-  return 30 + (1 - (flux - yMin) / (yMax - yMin)) * (canvas.height - 60);
-}
-
-
-    function clearPlot() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    function drawAxes() {
-      ctx.save();
-      ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-      ctx.lineWidth = 1;
-      // Frame
-      ctx.strokeRect(50, 20, canvas.width - 80, canvas.height - 60);
-      // X ticks every 30 min
-      ctx.fillStyle = 'rgba(255,255,255,0.6)';
-      ctx.font = '12px system-ui, sans-serif';
-      for (let t = 0; t <= 180; t += 30) {
-        const x = xScale(t);
-        ctx.beginPath(); ctx.moveTo(x, canvas.height - 40); ctx.lineTo(x, canvas.height - 44); ctx.stroke();
-        ctx.fillText(t.toString(), x - 8, canvas.height - 22);
-      }
-      // Y ticks
-      for (let f = 0.96; f <= 1.04; f += 0.02) {
-        const y = yScale(f);
-        ctx.beginPath(); ctx.moveTo(50, y); ctx.lineTo(54, y); ctx.stroke();
-        ctx.fillText(f.toFixed(2), 14, y + 4);
-      }
-      ctx.fillText('Minutes', canvas.width - 120, canvas.height - 12);
-      ctx.fillText('Relative Flux', 14, 18);
-      ctx.restore();
-    }
-
-    function drawPoints() {
-      ctx.save();
-      ctx.fillStyle = '#9fb6ff';
-      for (let i = 0; i < state.minutes.length; i++) {
-        const x = xScale(state.minutes[i]);
-        const y = yScale(state.flux[i]);
-        ctx.fillRect(x - 1.5, y - 1.5, 3, 3);
-      }
-      ctx.restore();
-    }
-
-    function drawTrueWindow() {
-      if (!state.revealed) return;
-      const start = state.params.midMin - state.params.durationMin / 2;
-      const end = state.params.midMin + state.params.durationMin / 2;
-      const x1 = xScale(start);
-      const x2 = xScale(end);
-      ctx.save();
-      ctx.fillStyle = 'rgba(120,224,143,0.25)';
-      ctx.strokeStyle = 'rgba(120,224,143,0.9)';
-      ctx.lineWidth = 2;
-      ctx.fillRect(x1, 20, x2 - x1, canvas.height - 60);
-      ctx.strokeRect(x1, 20, x2 - x1, canvas.height - 60);
-      ctx.restore();
-    }
-
-    function drawSelection() {
-      const sel = state.selection;
-      if (!sel && !(dragStart && dragEnd)) return;
-      const start = sel ? sel.startMin : Math.min(dragStart, dragEnd);
-      const end   = sel ? sel.endMin   : Math.max(dragStart, dragEnd);
-      const x1 = xScale(start);
-      const x2 = xScale(end);
-      ctx.save();
-      ctx.fillStyle = 'rgba(255,199,123,0.25)';
-      ctx.strokeStyle = 'rgba(255,199,123,0.9)';
-      ctx.lineWidth = 2;
-      ctx.fillRect(x1, 20, x2 - x1, canvas.height - 60);
-      ctx.strokeRect(x1, 20, x2 - x1, canvas.height - 60);
-      ctx.restore();
-    }
-
-    function draw() {
-      clearPlot();
-      drawAxes();
-      drawPoints();
-      drawTrueWindow();
-      drawSelection();
-    }
-
-    // ----- Interaction -----
-    function updateSelLabel() {
-      if (!state.selection) { document.getElementById('selWindow').textContent = '—'; return; }
-      const w = (state.selection.endMin - state.selection.startMin).toFixed(1);
-      document.getElementById('selWindow').textContent = `${state.selection.startMin.toFixed(1)}–${state.selection.endMin.toFixed(1)} min (w=${w})`;
-    }
-
-    function getCanvasX(clientX) {
-      const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width; // account for CSS scaling / DPR
-      return (clientX - rect.left) * scaleX;
-    }
-    function onDown(clientX, clientY) {
-      const x = getCanvasX(clientX);
-      dragging = true;
-      dragStart = invXScale(x);
-      dragEnd = dragStart;
-      draw();
-    }
-    function onMove(clientX, clientY) {
-      if (!dragging) return;
-      const x = getCanvasX(clientX);
-      dragEnd = invXScale(x);
-      draw();
-    }
-    function onUp() {
-      if (!dragging) return;
-      dragging = false;
-      const a = Math.min(dragStart, dragEnd);
-      const b = Math.max(dragStart, dragEnd);
-      if (Math.abs(b - a) < 1) { // too tiny, ignore
-        state.selection = null;
-      } else {
-        state.selection = { startMin: a, endMin: b };
-      }
-      dragStart = dragEnd = null;
-      updateSelLabel();
-      draw();
-    }
-
-    // Mouse
-    canvas.addEventListener('mousedown', (e) => onDown(e.clientX, e.clientY));
-    window.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
-    window.addEventListener('mouseup', onUp);
-    // Touch
-    canvas.addEventListener('touchstart', (e) => { if (e.touches[0]) onDown(e.touches[0].clientX, e.touches[0].clientY); });
-    window.addEventListener('touchmove', (e) => { if (e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY); });
-    window.addEventListener('touchend', onUp);
-
-    // ----- Scoring -----
-    function scoreSelection() {
-      if (!state.selection) return { score: 0, msg: 'No selection' };
-      const selMid = 0.5 * (state.selection.startMin + state.selection.endMin);
-      const selW   = (state.selection.endMin - state.selection.startMin);
-      const trueMid = state.params.midMin;
-      const trueW   = state.params.durationMin;
-
-      const centerErr = Math.abs(selMid - trueMid);
-      const widthErr  = Math.abs(selW - trueW);
-
-      // Convert errors to penalties (soft)
-      const centerPenalty = Math.min(1, centerErr / (trueW));      // 0 at perfect center, 1 at one duration off
-      const widthPenalty  = Math.min(1, widthErr / (trueW));       // 0 at perfect width, 1 if width is off by a duration
-
-      let score = 100 * (1 - 0.75 * centerPenalty - 0.25 * widthPenalty);
-      score = clamp(Math.round(score), 0, 100);
-
-      let msg = 'Nice!';
-      if (score >= 90) msg = 'Spot on! 🌟';
-      else if (score >= 75) msg = 'Great eye! ✅';
-      else if (score >= 50) msg = 'Close — try tweaking width/center.';
-      else msg = 'Tough one! Look for the broadest consistent dip.';
-
-      return { score, msg };
-    }
-
-    // ----- Buttons -----
-    document.getElementById('new').addEventListener('click', generateCurve);
-    document.getElementById('reveal').addEventListener('click', () => { state.revealed = true; draw(); });
-    document.getElementById('score').addEventListener('click', () => {
-      const { score, msg } = scoreSelection();
-      document.getElementById('scoreVal').textContent = state.selection ? `${score} — ${msg}` : '—';
-    });
-
-    // Regenerate when sliders change
-    document.getElementById('difficulty').addEventListener('input', generateCurve);
-    document.getElementById('depth').addEventListener('input', generateCurve);
-    document.getElementById('duration').addEventListener('input', generateCurve);
-    document.getElementById('drift').addEventListener('change', generateCurve);
-    document.getElementById('outliers').addEventListener('change', generateCurve);
-
-    // Init
-    generateCurve();
-  </script>
+      // Init
+      generateCurve();
+    </script>
 </body>
+
 </html>
