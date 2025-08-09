@@ -1,4 +1,4 @@
-# Find the Transit — Exoplanet Mini-Game
+# DrLoot's Find the Transit — Exoplanet Mini-Game
 
 **Find the Transit** is a fun + educational browser-based game where players try to spot the dip of an exoplanet transit hidden in a noisy, simulated light curve.
 
